@@ -1,5 +1,5 @@
 @import url('./all.css');
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
 
 html,
 body,
@@ -134,7 +134,9 @@ body {
 html,
 body {
     margin: 0 auto;
-    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+    font-family: 'Roboto',
+        sans-serif;
+
 }
 
 table {
@@ -212,7 +214,6 @@ textarea {
     -webkit-display: flex;
     -ms-display: flex;
     -moz-display: flex;
-    background-color: #2a2f4a;
     position: fixed;
     left: 0;
     top: 0;
@@ -225,13 +226,25 @@ textarea {
     font-weight: 600;
     text-transform: uppercase;
     z-index: 10000;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    position: absolute;
 }
 
-#header.alt {
-    background-color: transparent;
-    box-shadow: none;
-    position: absolute;
+#header.active {
+    background-color: #242943;
+    position: fixed;
+    animation: headerAnimation .5s;
+}
+
+@keyframes headerAnimation {
+    0% {
+        transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
 }
 
 a {
@@ -328,17 +341,15 @@ b {
 }
 
 #banner {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
     display: flex;
-    -webkit-display: flex;
-    -ms-display: flex;
-    -moz-display: flex;
     align-items: center;
     -ms-align-items: center;
     -moz-align-items: center;
     -webkit-align-items: center;
-    background-image: url('../../image/banner.jpg');
     background-position: center;
-    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -373,7 +384,6 @@ b {
 }
 
 #banner.style2 {
-    background-image: url('../../image/pic07.jpg');
     background-position: center 0px;
 }
 
@@ -381,7 +391,7 @@ b {
     background: #8d82c4;
 }
 
-#banner .inner {
+#banner>.inner {
     padding: 0 !important;
     position: relative;
     z-index: 2;
